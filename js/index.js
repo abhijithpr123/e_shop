@@ -11,16 +11,25 @@ async function fetchProducts() {
 
     let str = ``
     data.products.forEach(product => {
+      const originalPriceINR = product.price * 85;
+      const discount = product.discountPercentage || 0;
+      const discountedPrice = originalPriceINR - (originalPriceINR * discount) / 100;
+
       str += `
-        <div class="card">
-            <a href="/pages/product.html?id=${product.id}">
-                <img src="${product.thumbnail}" alt="">
-                <h3>${product.title}</h3>
-                <p>Rating: ⭐ ${product.rating}</p>
-                <p class="price">Price: $${product.price}</p>
-            </a>
-        </div>
-      `;
+  <div class="card">
+      <a href="/pages/product.html?id=${product.id}">
+          <img src="${product.thumbnail}" alt="">
+          <h3>${product.title}</h3>
+          <p>Rating: ⭐ ${product.rating}</p>
+          <div class="price-box">
+              <span class="final-price">₹${discountedPrice.toLocaleString("en-IN")}</span>
+              <span class="original-price">₹${originalPriceINR.toLocaleString("en-IN")}</span>
+              <span class="discount">${discount}% off</span>
+          </div>
+      </a>
+  </div>
+`;
+
 
     });
     document.getElementById("cards").innerHTML = str;

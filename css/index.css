@@ -110,6 +110,33 @@ body {
     color: inherit;
 }
 
+.price-box {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+.final-price {
+    font-size: 15px;
+    color: #edf2f0;
+    font-weight: 700;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px;
+}
+
+.discount {
+    color: #edf2f0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
 @media (max-width: 1200px) {
     .cards {
         grid-template-columns: repeat(3, 1fr);

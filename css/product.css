@@ -1,4 +1,3 @@
-/* 🌍 Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +11,6 @@ body {
   min-height: 100vh;
 }
 
-/* 🧩 Main Container */
 .container {
   display: flex;
   justify-content: center;
@@ -20,7 +18,6 @@ body {
   padding: 30px;
 }
 
-/* 🛍️ Product Page Layout */
 .product-page {
   display: flex;
   flex-wrap: wrap;
@@ -32,7 +29,6 @@ body {
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
 }
 
-/* 📸 Left Side (Gallery + Buttons) */
 .left-side {
   flex: 1;
   display: flex;
@@ -41,7 +37,6 @@ body {
   gap: 20px;
 }
 
-/* 🖼️ Gallery Section */
 .gallery {
   display: flex;
   gap: 20px;
@@ -62,24 +57,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto;     /* scroll only this part */
-  max-height: 90vh;     /* keeps it inside the viewport */
-  scrollbar-width: thin; /* nice thin scrollbar */
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: thin;
   scrollbar-color: #00ff88 #1e1e1e;
 }
 
-/* Optional: Custom scrollbar for WebKit browsers */
 .product-info::-webkit-scrollbar {
   width: 6px;
 }
+
 .product-info::-webkit-scrollbar-track {
   background: #1e1e1e;
   border-radius: 10px;
 }
+
 .product-info::-webkit-scrollbar-thumb {
   background: #00ff88;
   border-radius: 10px;
 }
+
 .product-info::-webkit-scrollbar-thumb:hover {
   background: #00cc66;
 }
@@ -121,7 +118,6 @@ body {
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
 }
 
-/* 💳 Price + Offer Section */
 .price-box {
   display: flex;
   align-items: baseline;
@@ -147,7 +143,6 @@ body {
   font-size: 18px;
 }
 
-/* 📑 Product Info */
 .product-info {
   flex: 1.2;
   padding: 20px 40px;
@@ -171,7 +166,6 @@ body {
   color: #ccc;
 }
 
-/* 🧾 Info Section (return policy, warranty etc.) */
 .info-extra {
   background: #222;
   padding: 15px;
@@ -189,7 +183,6 @@ body {
   color: #00ff88;
 }
 
-/* 🛒 Buttons */
 .buttons {
   display: flex;
   gap: 15px;
@@ -225,7 +218,6 @@ body {
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
 }
 
-/* ⭐ Reviews Section */
 .reviews-section {
   margin-top: 30px;
   padding-top: 20px;
@@ -261,7 +253,6 @@ body {
   margin-top: 3px;
 }
 
-/* 📱 Responsive Design */
 @media (max-width: 900px) {
   .product-page {
     flex-direction: column;

@@ -6,13 +6,11 @@ async function fetchProductDetails() {
     const res = await fetch(`https://dummyjson.com/products/${id}`);
     const data = await res.json();
 
-    // 🖼️ Thumbnail images
     let thumbnails = "";
     data.images.forEach((img) => {
       thumbnails += `<img src="${img}" alt="${data.title}" class="thumb" />`;
-    });
+    })
 
-    // 💬 Reviews section (DummyJSON provides structured review data for some products)
     let reviewsHTML = "";
     if (data.reviews && data.reviews.length > 0) {
       data.reviews.forEach((r) => {
@@ -29,21 +27,17 @@ async function fetchProductDetails() {
       reviewsHTML = `<p>No reviews yet 😔</p>`;
     }
 
-    // 💰 Price calculation
-    const originalPriceINR = data.price * 85; // approximate INR
+    const originalPriceINR = data.price * 85;
     const discount = data.discountPercentage || 0;
     const discountedPrice = originalPriceINR - (originalPriceINR * discount) / 100;
 
-    // 🧾 Product Details Section (including policy info)
     const returnPolicy = data.returnPolicy || "7-day replacement policy";
     const warrantyInformation = data.warrantyInformation || "1-year manufacturer warranty";
     const shippingInformation = data.shippingInformation || "Free delivery within 5-7 business days";
     const availabilityStatus = data.availabilityStatus || (data.stock > 0 ? "In Stock" : "Out of Stock");
 
-    // 🧩 Product Layout
     document.getElementById("productDetails").innerHTML = `
       <div class="product-page">
-        <!-- 🖼️ Left Side (Images + Buttons) -->
         <div class="left-side">
           <div class="gallery">
             <div class="thumbnail-list">${thumbnails}</div>
@@ -57,7 +51,6 @@ async function fetchProductDetails() {
           </div>
         </div>
 
-        <!-- 📋 Right Side (Product Info) -->
         <div class="product-info">
           <h1>${data.title}</h1>
           <p class="desc">${data.description}</p>
@@ -85,7 +78,6 @@ async function fetchProductDetails() {
       </div>
     `;
 
-    // 🔄 Change main image when hovering thumbnails
     const mainImg = document.getElementById("mainImg");
     document.querySelectorAll(".thumb").forEach((img) => {
       img.addEventListener("mouseenter", () => {
